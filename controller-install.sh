@@ -6,6 +6,7 @@ export ETCD_ENDPOINTS=
 
 # Specify the version (vX.Y.Z) of Kubernetes assets to deploy
 export K8S_VER=v1.1.8_coreos.0
+export KUBELET_VERSION=${K8S_VER}
 
 # The CIDR network to use for pod IPs.
 # Each pod launched in the cluster will be assigned an IP out of this range.
@@ -84,7 +85,7 @@ function init_templates {
 ExecStartPre=/usr/bin/mkdir -p /etc/kubernetes/manifests
 
 Environment=KUBELET_VERSION=${K8S_VER}
-ExecStart=/usr/lib/coreos/kubelet-wrapper \
+ExecStart=/opt/bin/kubelet-wrapper \
   --api_servers=http://127.0.0.1:8080 \
   --register-node=false \
   --allow-privileged=true \
