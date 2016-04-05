@@ -9,7 +9,7 @@ export KUBELET_TARGET_VERSION=v1.2.0_coreos.0
 export KUBELET_VERSION=$(cat /etc/systemd/system/kubelet.service | grep KUBELET_VERSION | awk 'BEGIN{FS="="} {print $3}')
 
 # Stop script if nothing to do 
-if [ "$USER" == "root" ]; then 
+if [ "$USER" != "root" ]; then 
 	echo "This script needs root rights"
 	exit
 fi

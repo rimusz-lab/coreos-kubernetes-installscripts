@@ -72,6 +72,7 @@ sudo cp apiserver.pem /etc/kubernetes/ssl/apiserver.pem
 sudo cp apiserver-key.pem /etc/kubernetes/ssl/apiserver-key.pem
 sudo chmod 600 /etc/kubernetes/ssl/*-key.pem
 sudo chown root:root /etc/kubernetes/ssl/*-key.pem
+cd ..
 
 wget https://raw.githubusercontent.com/alekssaul/coreos-kubernetes-installscripts/master/controller-install.sh
 wget https://raw.githubusercontent.com/alekssaul/coreos-kubernetes-installscripts/master/kubelet-wrapper
